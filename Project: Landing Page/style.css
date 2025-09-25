@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header {
+    background-color: #1f2937;
+
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 300px;
+    padding: 15px;
+    color: white;
+
+    border: 1px solid white;
+}
+
+.nav-1 {
+    display: flex;
+}
+
+.nav-2 {
+    display: flex;
+    gap: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
