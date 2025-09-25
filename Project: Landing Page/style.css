@@ -12,6 +12,10 @@ body {
 
 .header {
     background-color: #1f2937;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 
 }
 
@@ -20,7 +24,6 @@ body {
     justify-content: space-between;
     margin: 0 300px;
     padding: 15px;
-    color: white;
 
     border: 1px solid white;
 }
@@ -37,4 +40,32 @@ body {
 a {
     text-decoration: none;
     color: white;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 300px;
+    padding: 15px;
+
+    border: 1px solid;
+}
+
+.hero-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.hero-2 > img {
+    max-width: 100%;
+}
+
+button {
+    align-self: flex-start;
+    color: white;
+    background-color: #3882f6;
+    padding:  5px 20px;
+    border-radius: 10px;
 }
