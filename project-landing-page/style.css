@@ -15,6 +15,7 @@ body {
     color: white;
     display: flex;
     flex-direction: column;
+    gap: 20px;
 
 }
 
@@ -23,6 +24,7 @@ body {
     justify-content: space-between;
     margin: 0 400px;
     padding: 15px;
+    margin: 0 400px;
 
     /* border: 1px solid white; */
 }
@@ -45,7 +47,8 @@ a {
     display: flex;
     justify-content: space-between;
     margin: 0 400px;
-    padding: 15px;
+    padding: 20px;
+    gap: 40px;
 
     /* border: 1px solid; */
 }
@@ -55,12 +58,18 @@ a {
     flex-direction: column;
     justify-content: center;
     gap: 10px;
+    width: 500px
 }
 
 .hero-main {
     font-size: 48px;
     color: #f9faf8;
     font-weight: 900;
+}
+
+.hero-first {
+    font-size: 16px;
+    color: #e5e7eb;
 }
 
 .hero-secondary {
@@ -89,7 +98,7 @@ button {
     flex-direction: column;
     align-items: center;
     margin: 0 300px;
-    gap: 30px;
+    gap: 40px;
     padding: 20px;
 
     /* border: 1px solid black; */
@@ -105,7 +114,7 @@ button {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    gap: 40px;
+    gap: 60px;
 
     /* border: 1px solid black; */
 }
@@ -130,9 +139,10 @@ button {
     justify-content: center;
     align-items: center;
     background-color: #e5e7eb;
-    height: 150px;
+    padding: 30px;
+    height: 2000px;
 
-    /* border: 1px solid black; */
+   
 }
 
 .section-3 {
@@ -152,7 +162,7 @@ blockquote span {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px;
+    padding: 30px;
 
     /* border: 1px solid; */
 }
@@ -160,7 +170,7 @@ blockquote span {
 .footer-main {
     display: flex;
     justify-content: space-between;
-    padding: 30px 80px;
+    padding: 20px 80px;
     gap: 100px;
     background-color: lightblue;
 
