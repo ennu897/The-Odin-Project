@@ -1,0 +1,6 @@
+[submodule "testSub"]
+	path = testSub
+	url = git@github.com:ennu897/testSub.git
+[submodule "projectTest"]
+	path = projectTest
+	url = git@github.com:ennu897/testSub.git
