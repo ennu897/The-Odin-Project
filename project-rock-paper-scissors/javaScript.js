@@ -1,5 +1,10 @@
 // https://www.theodinproject.com/lessons/foundations-rock-paper-scissors
 
+const result = document.getElementById('my-heading');
+
+function display(message){
+    result.innerHTML += "<br>" + message;
+}
 
 // Step 1: Setup the project structure
 // console.log("Hello World!");
@@ -63,19 +68,19 @@ function playGame(){
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
 
-        console.log(`Round: ${i}`)
-        console.log(`computerChoice: ${computerSelection} | humanChoice: ${humanSelection}`);
-        console.log(playRound(humanSelection, computerSelection));
-        console.log(`Score log => YOU: ${humanScore} | Computer: ${computerScore}`);
-        console.log("--------------------------------------------");
+        display(`Round: ${i}`);
+        display(`computerChoice: ${computerSelection} | humanChoice: ${humanSelection}`);
+        display(playRound(humanSelection, computerSelection));
+        display(`Score log => You: ${humanScore} | Computer: ${computerScore}`);
+        display("--------------------------------------------");
 
     }
     if(humanScore > computerScore){
-        console.log("🎉 You won the game!"); 
+        display("🎉 You won the game!"); 
     }else if(humanScore < computerScore){
-        console.log("🎉 You lose the game!");
+        display("🎉 You lose the game!");
     }else {
-        console.log("🎉 game tied!");
+        display("🎉 game tied!");
     }
 }
 playGame();
