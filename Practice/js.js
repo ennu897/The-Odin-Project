@@ -1,3 +1,63 @@
+const list = document.querySelector("ul");
+const input = document.querySelector('input');
+const button = document.querySelector('button');
+
+button.addEventListener('click', () => {
+    let listItem = input.value;
+    input.value = "";
+
+    const li = document.createElement("li");
+    const span = document.createElement("span");
+    const btn = document.createElement('button');
+
+    li.appendChild(span);
+    span.textContent = listItem;
+    li.appendChild(btn);
+    btn.textContent = "Delete";
+    list.appendChild(li);
+
+    btn.addEventListener('click', () => {
+        list.removeChild(li);
+    });
+    input.focus();
+});
+
+
+
+
+
+
+
+
+// modifing the DOM objects
+/*
+const container = document.querySelector('#container');
+
+const para = document.createElement('p');
+para.textContent = "Hey I'm red!"; 
+para.style.color= "red";
+container.appendChild(para);
+
+const head = document.createElement('h3');
+head.textContent= "Hey I'm blue h3!"; 
+head.style.color= "blue";
+container.appendChild(head);
+
+const block = document.createElement('div');
+block.setAttribute("style", "border: 1px solid black; background-color: pink");
+
+const elementH1 = document.createElement('h1');
+elementH1.textContent = "I'm in a div";
+block.appendChild(elementH1);
+
+const elementP = document.createElement('p');
+elementP.textContent = "ME TOO!";
+block.appendChild(elementP)
+
+container.appendChild(block);
+*/
+
+
 /*
 // add function
 function add7(number){
@@ -224,7 +284,7 @@ console.log(shuffle(arr));
 
 
 // Filter unique array members
-
+/*
 let strings = ["Hare", "Krishna", "Hare", "Krishna",
                 "Krishna", "Krishna", "Hare", "Hare", ":-O"];
 
@@ -241,4 +301,8 @@ function unique(arr){
     return arr;
 }
 console.log(unique(strings));
+*/
+
+
+
 
