@@ -1,3 +1,21 @@
+const palindromes = function (string) {
+    let updatedString = string.replace(/[\s,]/g, "");
+    let reverseString = "";
+    for(let i=updatedString.length-1; i>=0; i--){
+        reverseString += updatedString.charAt[i];
+    }
+    return reverseString == updatedString;
+};
+
+
+console.log(palindromes("anosh"));
+
+
+
+
+
+
+/*
 const list = document.querySelector("ul");
 const input = document.querySelector('input');
 const button = document.querySelector('button');
@@ -21,10 +39,6 @@ button.addEventListener('click', () => {
     });
     input.focus();
 });
-
-
-
-
 
 
 
