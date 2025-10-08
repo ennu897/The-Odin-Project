@@ -3,7 +3,7 @@ function display(message){
     mainResult.innerHTML = message;
 }
 
-let a;
+let a =[];
 
 document.querySelector('.main-grid').addEventListener('click', (event) => {
     const box = event.target.closest('.box');
@@ -11,10 +11,11 @@ document.querySelector('.main-grid').addEventListener('click', (event) => {
 
     const span = box.querySelector('span'); 
     if(span){
-    console.log(span.textContent.trim());
+        a.push(span.textContent.trim());
+        console.log(a);
     }
-
 });
+// console.log(a);
 
 
 // Main Operator funciton
