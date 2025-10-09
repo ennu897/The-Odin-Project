@@ -77,24 +77,28 @@ body {
     align-items: center;
     border-radius: 15px;
     border: 1px solid;
-    box-shadow: 0 0 5px 1px #8c8c8c; 
-
+    box-shadow: 0 0 5px 1px #8c8c8c;
+    cursor: pointer; /* ensures pointer on all parts */
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .box:hover {
     transform: scale(1.1);
     background-color: #999999;
-    
 }
 
-.box:hover .number{
-    transform: scale(1.2);
-    /* display: inline-block; */
+.box .number {
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    transition: transform 0.2s ease, color 0.2s ease;
+    display: inline-block; /* needed for transform to work reliably */
 }
 
-/* .box:hover .number {
+.box:hover .number {
+    transform: scale(2);
     color: white;
-} */
+}
 
 #box-enter {
     grid-column: 4;
