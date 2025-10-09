@@ -1,6 +1,11 @@
 let mainResult = document.querySelector(".main-result");
-function display(message){
+function displayPrimary(message){
     mainResult.innerHTML = message;
+}
+
+let displayValues = document.querySelector(".display-values");
+function displaySecondary(message){
+    displayValues.innerHTML = message;
 }
 
 let a =[];
@@ -10,12 +15,93 @@ document.querySelector('.main-grid').addEventListener('click', (event) => {
     if(!box) return;
 
     const span = box.querySelector('span'); 
-    if(span){
-        a.push(span.textContent.trim());
-        console.log(a);
+    if(!span) return;
+
+    if (box.id === "box-enter") return;
+    if(box.id === "boxAC") {
+        a=[];
+        console.log("");
+        displayPrimary("");
+        displaySecondary("");
+        return;
     }
+
+    const value = span.textContent.trim();
+
+    if(/\d/.test(value)){
+        if(a.length === 0 || isNaN(a[a.length-1])){
+            a.push(value);
+        }else{
+            a[a.length-1] += value;
+        }
+    }else{
+        a.push(value);
+    }
+
+    displaySecondary(a.join(' '));
+
 });
-// console.log(a);
+
+const boxEnter = document.querySelector('#box-enter');
+    boxEnter.addEventListener('click', () =>{
+        let firstVariable = Number(a[0]);
+        let operatorVariable = a[1];
+        let secondVariable = Number(a[2]);
+        displaySecondary(`${firstVariable} ${operatorVariable} ${secondVariable}`)
+        displayPrimary(operate(firstVariable, operatorVariable, secondVariable));
+        a=[];
+});
+
+
+// Main Operator funciton
+function operate(first, operator, second){
+    switch (operator){
+        case "/":
+            return divide(first, second);
+        case "x":
+            return multiply(first, second);
+        case "%":
+            return percentile(first, second);
+        case "-":
+            return subtract(first, second);
+        case "+":
+            return addition(first, second);
+        case "":
+            return null; 
+        default:
+            return "Invalid Operator";
+    }
+    
+}
+
+//  functions for operations
+
+// Addition
+function addition(a, b){
+    return a+b;
+}
+
+// Subtraction
+function subtract(a, b){
+    return a-b;
+}
+
+// Percentage
+function percentile(a, b){
+    return a%b;
+}
+
+// Multiplication
+function multiply(a, b){
+    return a*b;
+}
+
+// Divison
+function divide(a, b){
+    return a/b;
+}
+
+
 
 
 // Main Operator funciton
@@ -66,18 +152,33 @@ function divide(a, b){
     return a/b;
 }
 
-let a = getFirstVariable();
-let b = getSecondVariable();
-let operator = getOperator();
-*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // query box-enter box
 /*
-const boxEnter = document.querySelector('#box-enter');
-boxEnter.addEventListener('click', () =>{
-    return operate();
-});
+
 
 // query boxAC box
 const boxAC = document.querySelector('#boxAC');
