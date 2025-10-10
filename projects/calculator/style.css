@@ -15,10 +15,10 @@ body {
     border-radius: 40px;
     background-color: #e6e6e6;
     margin: auto;
-    margin-top: 50px;
-    max-width: 350px;
-    height: 500px;
-    /* width: 90%; */
+    margin-top: 100px;
+    max-width: 400px;
+    height: 600px;
+    width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,7 +29,7 @@ body {
 .display{
     border: 1px solid;
     height: 150px;
-    width: 300px;
+    width: 350px;
     border-radius: 30px;
     margin: 20px 10px 10px;
     box-shadow: 0 0 5px 1px #8c8c8c; 
@@ -61,8 +61,13 @@ body {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
 
+<<<<<<< HEAD
     max-height: 450px;
     width: 300px;
+=======
+    height: 450px;
+    width: 350px;
+>>>>>>> parent of fcb0e55 (fixed the width wrt the mobile layout)
 
     margin: 10px 10px 20px;
     /* padding: 20px; */
