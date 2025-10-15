@@ -35,14 +35,14 @@ html {
     justify-content: center;
     align-items: center;
     position: absolute;
-    transform: translateY(-120%);
-    top: 50%;
+    top: 25%;
     left: 0;
     width: 100%;
+    padding: 10px 0;
     border: 1px solid;
     color: white;
     background-color: black;
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 
