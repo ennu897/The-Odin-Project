@@ -4,13 +4,17 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
 html {
     /* font-size: 62.5%; */
 }
 
 .container {
-    max-width: 1400px;
-    width: 90%;
+    max-width: 70%;
+    /* width: 100%;  */
     height: 100vh;
     margin: 0 auto;
     display: flex;
@@ -19,7 +23,7 @@ html {
 }
 
 .left-container {
-    width: 60%;
+    width: 40%;
     position: relative;
 
 }
@@ -39,33 +43,43 @@ html {
     left: 0;
     width: 100%;
     padding: 10px 0;
-    border: 1px solid;
+    border: 1px solid black;
     color: white;
     background-color: black;
-    opacity: 0.6;
+    opacity: 0.5;
 }
 
 
 .right-container {
-    width: 100%;
+    width: 60%;
     height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
+
+
 .right-first-div {
     height: 40vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: flex-end;
+    width: 100%;
 
-    /* padding:    come back here her fix values here */
+    padding: 0 70px 0px 30px; 
 
     border: 1px solid;
 }
 
+h2 {
+    white-space: normal;  /* allows wrapping */
+    font-size: clamp(16px, 2vw, 24px); /* optional: responsive font */
+}
+
 .right-second-div {
     height: 30vh;
-
-    /* padding:    come back here her fix values here */
-
+    width: 100%;  
     border: 1px solid;
 }
 
