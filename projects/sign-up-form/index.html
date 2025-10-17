@@ -1,43 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign-Up Form</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="js.js" defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sign-Up Form</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="js.js" defer></script>
 </head> 
 <body>
-    <div class="container">
-        <div class="left-container">
-            
-                <img id="left-bg" src="./images/left-bg.jpg" alt="left-bg">
-            
-            <div class="left-content">
-                    <img clas="img2" src="./images/odin-logo.png" alt="odin-logo" width="130px" height="150px">
-                    <h2>ODIN</h2>
-                
-            </div>
-        </div>
+	<div class="container">
+		<div class="left-container">
+					
+			<img id="left-bg" src="./images/left-bg.jpg" alt="left-bg">
+					
+			<div class="left-content">
+				<img clas="img2" src="./images/odin-logo.png" alt="odin-logo" width="130px" height="150px">
+				<h2>ODIN</h2>
+							
+			</div>
+		</div>
 
-        <div class="right-container">
-            <div class="right-first-div">
-                <div>
-                    <h2>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.</h2>
-                    <h2>Sign up <em>now</em> to get started.</h2>
-                </div>
-                <h2>You know you want to</h2>
-            </div>
-            <div class="right-second-div">
-                
-            </div>
-            <div class="right-third-div">
+		<div class="right-container">
+			<div class="right-first-div">
+				<div>
+					<h2>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.</h2>
+					<h2>Sign up <em>now</em> to get started.</h2>
+				</div>
+				<div>
+				</div>
+				
+				<h2>You know you want to</h2>
+			</div>
+			<div class="right-second-div">
+				<span>Let's do this!</span>
+				<form action="" method="post" class="grid-box">
+					<div class="form-field">
+						<label for="fname">FIRST NAME</label>
+						<input type="text" id="fname" name="FirstName" placeholder="Thor">
+					</div>
+					<div class="form-field">
+						<label for="lname">LAST NAME</label>
+						<input type="text" id="lname" name="LastName" placeholder="Odinson">
+					</div>
+					<div class="form-field">
+						<label for="email">EMAIL</label>
+						<input type="email" id="email" name="Email" placeholder="example@gmail.com">
+					</div>
+					<div class="form-field">
+						<label for="phonenumber">NUMBER</label>
+						<input type="number" id="phonenumber" name="PhoneNumber" placeholder="123-456-7890">
+					</div>
+					<div class="form-field">
+						<label for="password">PASSWORD</label>
+						<input type="password" id="password" name="Password" placeholder="***********">
+					</div>
+					<div class="form-field">
+						<label for="confirmpassword">CONFIRM PASSWORD</label>
+						<input type="password" id="confirmpassword" name="ConfirmPassword" placeholder="***********">
+					</div>
+				</form>
+						
+			</div>
+			<div class="right-third-div">
 
-            </div>
+			</div>
 
-        </div>
-
-    </div>
-    
+		</div>
+	</div>
 </body>
 </html>
