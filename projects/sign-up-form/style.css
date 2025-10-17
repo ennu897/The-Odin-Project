@@ -42,7 +42,7 @@ html {
     position: absolute;
     top: 25%;
     left: 0;
-    max-width: 100%;
+    width: 100%;
     padding: 10px 0;
     /* border: 1px solid black; */
     color: white;
@@ -50,12 +50,16 @@ html {
     opacity: 0.7;
 }
 
-
-.logo {
-  width: 500px;
+ .logo {
   max-width: 100%;
   height: auto;
   fill: white;
+  margin-left: -100px;
+
+} 
+
+.logo use {
+    height: 500px;
 }
 
 .copyright {
