@@ -159,7 +159,7 @@ input[type="password"]:invalid {
 }
 
 input:focus {
-    border: 1px solid blue;
+    border: 2px solid blue;
     box-shadow: 0 0 4px rgba(0, 0, 255, 0.3);
 }
 
