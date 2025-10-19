@@ -1,3 +1,10 @@
+:root {
+  /* color */
+  --grey-tint: #495057;
+  --grey-base: #f1f3f5;
+  --grey-shade: #212529;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,9 +12,10 @@
 
 }
 
-a {
-    /* text-decoration: none; */
-}
+/* a:hover, a:link, a:active, a:visited {
+  color: var(--grey-tint);
+  text-decoration-color: blue;
+} */
 
 h1 {
     text-align: center;

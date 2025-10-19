@@ -1,0 +1,111 @@
+/* ----------------- GLOBAL STYLES ----------------- */
+
+:root {
+
+  /* FONT SIZES */
+  --text-sm: 1.2rem;
+  --text-base: 1.6rem;
+  --text-paragraph: 2rem;
+  --text-h5: 2.4rem;
+  --text-h4: 3.2rem;
+  --text-h3: 4rem;
+  --text-h2: 4.8rem;
+  --text-h1: 6.2rem;
+
+  /* FONT WEIGHTS */
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  /* LINE HEIGHT */
+  --line-height-normal: 1.5;
+  --line-height-tight: 1.2;
+
+  /* LETTER SPACE */
+  --letter-sapce-tight: -2px;
+
+  /* FONT FAMILY */
+  --font-family: 'Roboto', sans-serif;
+
+  /* COLORS */
+  --white: #ffffff;
+  --black: #000000;
+
+  --grey-tint: #495057;
+  --grey-base: #f1f3f5;
+  --grey-shade: #212529;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  color: var(--grey-base);
+  background-color: var(--black);
+}
+
+.container {
+  max-width: 1400px;
+  width: 90%;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: var(--white);
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-sapce-tight);
+  color: var(--grey-shade);
+}
+
+h1 {
+  font-size: var(--text-h1);
+}
+
+h2 {
+  font-size: var(--text-h2);
+}
+
+h3 {
+  font-size: var(--text-h3);
+}
+
+h4 {
+  font-size: var(--text-h4);
+}
+
+h5 {
+  font-size: var(--text-h5);
+}
+
+p {
+  font-size: var(--text-paragraph);
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  font-size: var(--text-base);
+}
+
+a:hover, a:link, a:active, a:visited {
+  color: var(--grey-base);
+}
+
+span {
+  display: inline-block;
+}
+
+ul {
+  li
+}
