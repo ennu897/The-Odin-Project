@@ -90,6 +90,7 @@ h5 {
 
 p {
   font-size: var(--text-base);
+  font-weight: var(--font-weight-bold);
 }
 
 a {
@@ -130,7 +131,7 @@ ul {
   grid-area: header;
   display: grid;
   grid-template-rows: 40% 60%;
-  padding: 10px 40px;
+  padding: 10px 40px 0 40px;
   
 
   border: 1px solid black;
@@ -152,13 +153,20 @@ ul {
   align-content: center;
 }
 
+.search-bar > input {
+  border-radius: 10px;
+  background-color: #e6e6e6;
+  border: #e6e6e6;
+} 
+
+
 .user-profile {
   display: grid;
   grid-template-columns: 50px 60px 120px;
   justify-content: end;
   justify-items: end;
   align-items: center;
-  /* gap: 15px; */
+  gap: 15px;
 }
 
 
@@ -168,7 +176,7 @@ ul {
   height: 100%;
   gap: 40px;
 
-  /* align-content: center; */
+  align-content: center;
   
 }
 
@@ -183,7 +191,7 @@ ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 40%;
-  gap: 20px;
+  gap: 10px;
   align-content: center;
   justify-content: end;
   justify-items: end;
@@ -199,10 +207,8 @@ ul {
   border-radius: 20px;
 
 
+
 }
-
-
-
 
 
 /* ----------------- SIDEBAR ----------------- */
@@ -260,12 +266,79 @@ ul {
 
 
 
+/* ----------------- MAIN-CONTENT ----------------- */
+
 .main-content {
   grid-area: main-content;
+  display: grid;
+  grid-template-columns: 4fr 1.5fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+    'projects announcements'
+    'projects trending';
+  row-gap: 30px;
+  column-gap: 20px;
+
+  padding: 25px 30px 40px 20px;
+
+
+  background-color: #e6e6e6;
+  border: 1px solid black;
+}
+
+.projects {
+  grid-area: projects;
+  display: grid;
+  grid-template-rows: 5% 95%;
+
 
   border: 1px solid black;
 }
 
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  border: 1px solid black;
+}
+
+.projects-grid > div {
+  background-color: var(--white);
+  border-radius: 10px;
+  border-left: 10px solid lightcoral;
+}
+
+.announcements {
+  grid-area: announcements;
+  display: grid;
+  grid-template-rows: 10% 90%;
+
+  border: 1px solid black;
+}
+
+.announcements-grid {
+  display: grid;
+}
+
+.trending {
+  grid-area: trending;
+  display: grid;
+  grid-template-rows: 10% 90%;
+
+  border: 1px solid black;
+}
+
+.trending-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+}
+
+.main-content  p {
+  align-self: center;
+  justify-self: start;
+}
 
 
 
@@ -278,6 +351,3 @@ ul {
 
 /* ----------------- COMPONENTS ----------------- */
 
-.bold {
-  font-weight: var(--font-weight-bold);
-}
