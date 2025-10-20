@@ -89,7 +89,7 @@ h5 {
 }
 
 p {
-  font-size: var(--text-paragraph);
+  font-size: var(--text-base);
 }
 
 a {
@@ -124,17 +124,29 @@ ul {
   border: 1px solid black;
 }
 
+
+/* ----------------- HEADER ----------------- */
 .header {
   grid-area: header;
   display: grid;
+  grid-template-columns: 2fr 1fr;
 
   
 
   border: 1px solid black;
 }
 
+.user-profile {
+  display: grid;
+  grid-template-columns: 1fr 1fr 4fr;
+}
+
+
+
+
+/* ----------------- SIDEBAR ----------------- */
 .sidebar {
-  /* height: 100vh; */
+  height: 100vh;
   grid-area: sidebar;
   display: grid;
   grid-template-rows: 60px 270px 135px ;
@@ -149,49 +161,38 @@ ul {
   border: 1px solid black;
 }
 
-.sidebar-grid-1 {
+.sidebar-grid-1, .sidebar-grid-2, .sidebar-grid-3 {
   display: grid;
   grid-template-columns: 60px 1fr;
   align-items: center;
-  /* justify-content: start; */
-  gap: 10px;
-  
+  gap: 5px;
 }
 
 .sidebar-grid-2 {
-  display: grid;
-  grid-template-columns: 60px 1fr;
-  align-items: center;
-  /* justify-items: center; */
-  gap: 10px;
   margin-bottom: 20px;
-
 }
 
+.fill-white {
+  fill: white;
+  justify-self: center;
+}
+
+.fill-black {
+  fill: black;
+  justify-self: center;
+}
 
 .medium-icons {
   width: 60px;
   height: 60px;
-  fill: white;
-  justify-self: center;
-  
 }
 
 .small-icons {
   width: 30px;
   height: 30px;
-  fill: white;
-  justify-self: center;
 }
 
 
-
-.sidebar-grid-3 {
-  display: grid;
-  grid-template-columns: 60px 1fr;
-  align-items: center;
-  gap: 10px;
-}
 
 .main-content {
   grid-area: main-content;
