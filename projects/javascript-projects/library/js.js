@@ -1,11 +1,10 @@
-
 document.addEventListener("DOMContentLoaded", () => {
-  const openForm= document.getElementById('open-form');
+  const openForm = document.getElementById('open-form');
   const closeForm = document.getElementById('close-form');
   const mainContainer = document.getElementById('main-container');
 
   openForm.addEventListener('click', () => {
-    mainContainer.style.display= "flex";
+    mainContainer.style.display = "flex";
   });
 
   closeForm.addEventListener('click', () => {
@@ -14,8 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const myLib = [];
+let editingIndex = null; // <-- global editing index
 
-function Book(title, author, pages, read){
+function Book(title, author, pages, read) {
   this.id = crypto.randomUUID();
   this.title = title;
   this.author = author;
@@ -23,12 +23,10 @@ function Book(title, author, pages, read){
   this.read = read;
 }
 
-
-function createBook(title, author, pages, read){
+function createBook(title, author, pages, read) {
   const newBook = new Book(title, author, pages, read);
   myLib.push(newBook);
   displayBooks();
-  
 }
 
 function displayBooks() {
@@ -38,7 +36,7 @@ function displayBooks() {
   myLib.forEach((book, index) => {
     const div = document.createElement('div');
     div.classList.add('book-details');
-    div.dataset.index = index; // store index for remove/edit
+    div.dataset.index = index;
     div.innerHTML = `
       <p>Title: <span>${book.title}</span></p>
       <p>Author: <span>${book.author}</span></p>
@@ -60,32 +58,27 @@ mainDiv.addEventListener('click', (e) => {
   const index = bookDiv.dataset.index;
 
   if (e.target.classList.contains('remove')) {
-    if (index !== undefined) myLib.splice(index, 1); // remove from array
-    bookDiv.remove(); // remove from DOM
+    myLib.splice(index, 1);
+    displayBooks();
   }
 
   if (e.target.classList.contains('edit')) {
-    const titleInput = document.getElementById('title');
-    const authorInput = document.getElementById('author');
-    const pagesInput = document.getElementById('pages');
-    const readInput = document.getElementById('read');
+    editingIndex = index; // set global editing index
 
-    if (index !== undefined) {
-      const book = myLib[index];
-      titleInput.value = book.title;
-      authorInput.value = book.author;
-      pagesInput.value = book.pages;
-      readInput.checked = book.read === 'yes';
-    }
+    const book = myLib[index];
+    document.getElementById('title').value = book.title;
+    document.getElementById('author').value = book.author;
+    document.getElementById('pages').value = book.pages;
+    document.getElementById('read').checked = book.read === 'yes';
 
     document.getElementById('main-container').style.display = 'flex';
   }
 });
 
-
+// Submit handler
 const submit = document.getElementById('submit');
 
-if(submit) {
+if (submit) {
   submit.addEventListener('click', (e) => {
     e.preventDefault();
 
@@ -94,12 +87,20 @@ if(submit) {
     const pages = document.getElementById('pages').value;
     const read = document.getElementById('read').checked ? 'yes' : 'no';
 
-    const newBook = createBook(title, author, pages, read);
-    
-    // console.log(myLib);
+    if (editingIndex !== null) {
+      // Edit existing book
+      myLib[editingIndex].title = title;
+      myLib[editingIndex].author = author;
+      myLib[editingIndex].pages = pages;
+      myLib[editingIndex].read = read;
+      editingIndex = null; // reset
+    } else {
+      // Create new book
+      createBook(title, author, pages, read);
+    }
 
+    displayBooks();
     e.target.closest('form').reset();
     document.getElementById('main-container').style.display = 'none';
-
   });
 }
