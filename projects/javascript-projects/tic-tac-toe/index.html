@@ -12,22 +12,32 @@
   <body>
     <div class="flex">
       <div class="grid-two-col">
-        <button type="button" id="player-one">Player-One</button>
-        <button type="button" id="player-two">Player-Two</button>
-        <button type="button" id="start">Start</button>
-        <button type="button" id="restart">Restart</button>
+        <div class="grid-col-one">
+          <div class="grid-row">
+            <label for="player-one">Player-One</label>
+            <input type="text" name="player-one" id="player-one">
+          </div>
+          <div class="grid-row">
+            <label for="player-two">Player-two</label>
+            <input type="text" name="player-two" id="player-two">
+          </div>
+        </div>
+        <div class="grid-col-two">
+          <button type="button" id="start">Start</button>
+          <button type="button" id="restart">Restart</button>
+        </div>
       </div>
 
       <div class="grid-three-col">
-        <div><input type="text" id="box"></div>
-        <div><input type="text" id="box"></div>
-        <div><input type="text" id="box"></div>
-        <div><input type="text" id="box"></div>
-        <div><input type="text" id="box"></div>
-        <div><input type="text" id="box"></div>
-        <div><input type="text" id="box"></div>
-        <div><input type="text" id="box"></div>
-        <div><input type="text" id="box"></div>
+        <div><input type="text" maxlength="1" class="boxes" id="one-1"></div>
+        <div><input type="text" maxlength="1" class="boxes" id="two-2"></div>
+        <div><input type="text" maxlength="1" class="boxes" id="three-3"></div>
+        <div><input type="text" maxlength="1" class="boxes" id="four-4"></div>
+        <div><input type="text" maxlength="1" class="boxes" id="five-5"></div>
+        <div><input type="text" maxlength="1" class="boxes" id="six-6"></div>
+        <div><input type="text" maxlength="1" class="boxes" id="seven-7"></div>
+        <div><input type="text" maxlength="1" class="boxes" id="eight-8"></div>
+        <div><input type="text" maxlength="1" class="boxes" id="nine-9"></div>
       </div>
     <div>
 
