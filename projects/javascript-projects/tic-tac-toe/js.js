@@ -2,6 +2,7 @@ let clickCount = 0;
 let   gameActive = false;
 const playerOne = document.querySelector("#player-one");
 const playerTwo = document.querySelector("#player-two");
+const playerInputs = [playerOne, playerTwo];
 const playerAssignmentOne = document.querySelector("#player-assignment-one");
 const playerAssignmentTwo = document.querySelector("#player-assignment-two");
 const playerAssignmentMessage = document.querySelector('#player-assignment-message');
@@ -9,10 +10,17 @@ const start = document.querySelector('#start');
 const restart = document.querySelector('#restart');
 const restartMsg = document.querySelector('#restart-msg')
 const boxes = document.querySelectorAll('.boxes');
+const congratulations = document.querySelector('#congrats');
+
 let finalWinner;
+
+
 
 boxes.forEach(box => box.disabled = true);
 playerAssignmentMessage.innerHTML = 'Enter Player names & click Start to begin!';
+
+
+
 
 const winningCombo = [
   [0, 1, 2],
@@ -34,7 +42,24 @@ function winner(){
       playerAssignmentTwo.innerHTML = '';
       playerAssignmentMessage.innerHTML = '';
       finalWinner = values[a] === 'X' ? playerOne.value.toUpperCase() : playerTwo.value.toUpperCase();
-      playerAssignmentMessage.innerHTML = values[a] === 'X' ? `${playerOne.value.toUpperCase()} is winner`: `${playerOne.value.toUpperCase()} is winner`;
+      playerAssignmentMessage.innerHTML = values[a] === 'X' 
+        ? `${playerOne.value.toUpperCase()} is winner` 
+        : `${playerOne.value.toUpperCase()} is winner`;
+      
+      congratulations.style.display = 'block';
+      setTimeout(() => {
+        congratulations.style.opacity = 1;
+      }, 10);
+
+      setTimeout(() => {
+        congratulations.style.opacity = 0;
+        setTimeout(() => {
+          congratulations.style.display = 'none';
+        }, 500);
+      }, 1000)
+      
+      playerInputs.forEach(input => input.disabled = true);
+      restartMsg.style.backgroundColor= 'red';
       restartMsg.innerHTML = 'You must Restart the game to play again.';
       playerOne.value = '';
       playerTwo.value = '';
@@ -45,6 +70,7 @@ function winner(){
 }
 
 start.addEventListener('click', () => {
+  // start.disabled = 'true';
   
   if(playerOne.value && playerTwo.value){
     playerAssignmentOne.innerHTML = `${playerOne.value} is assigned: X`;
@@ -73,13 +99,15 @@ start.addEventListener('click', () => {
         
         
         if(clickCount === 9) {
-          restartMsg.style.backgroundColor= 'white';
+          restartMsg.style.backgroundColor= 'red';
           restartMsg.innerHTML = 'You must Restart the game to play again.';
         }
       }
     });
   }else if(playerOne.value || playerTwo.value){
+    // playerAssignmentMessage.style.color = "red";
     playerAssignmentMessage.innerHTML = 'Please enter both player names to Begin!';
+    // playerAssignmentMessage.style.color = "red";
   }
 });
 
@@ -89,7 +117,9 @@ restart.addEventListener('click', () => {
   boxes.forEach(box => {
     box.value='';
     box.disabled = false;
+    box.autocomplete = 'off';
   });
+  playerInputs.forEach(input => input.disabled = false);
   restartMsg.innerHTML = '';
   playerOne.value = '';
   playerTwo.value = '';
