@@ -45,8 +45,9 @@ function winner(){
       finalWinner = values[a] === 'X' ? playerOne.value.toUpperCase() : playerTwo.value.toUpperCase();
       playerAssignmentMessage.innerHTML = values[a] === 'X' 
         ? `${playerOne.value.toUpperCase()} is winner` 
-        : `${playerOne.value.toUpperCase()} is winner`;
-      
+        : `${playerTwo.value.toUpperCase()} is winner`;
+
+      start.disabled = true;
       congratulations.style.display = 'block';
       setTimeout(() => {
         congratulations.style.opacity = 1;
@@ -70,7 +71,7 @@ function winner(){
   return null;
 }
 
-document.querySelector('.grid-three-col').addEventListener('click', () => {
+/* document.querySelector('.grid-three-col').addEventListener('click', () => {
   if(playerOne.value && playerTwo.value){
     playerAssignmentMessage.innerHTML = 'Please click Start to Begin!!';
   }
@@ -81,7 +82,7 @@ document.querySelector('.grid-three-col').addEventListener('click', () => {
   if((!playerOne.value || !playerTwo.value)){
     playerAssignmentMessage.innerHTML = 'Please enter both player names and click Start!!';
   }
-});
+}); */
 
   
 start.addEventListener('click', () => {
@@ -121,6 +122,7 @@ start.addEventListener('click', () => {
         if(clickCount === 9) {
           restartMsg.style.backgroundColor= 'red';
           restartMsg.innerHTML = 'You must Restart the game to play again.';
+          start.disabled = true;
         }
       }
     });
@@ -137,8 +139,7 @@ restart.addEventListener('click', () => {
   clickCount=0;
   boxes.forEach(box => {
     box.value='';
-    box.disabled = false;
-    box.autocomplete = 'off';
+    box.disabled = true;
   });
   playerInputs.forEach(input => input.disabled = false);
   restartMsg.innerHTML = '';
@@ -149,4 +150,5 @@ restart.addEventListener('click', () => {
   playerAssignmentMessage.innerHTML = 'Enter Player names & click Start to begin!';
   restartMsg.style.backgroundColor= 'transparent';
   gameActive = false;
+  start.disabled = true;
 });
