@@ -24,6 +24,7 @@ body {
   width: 500px;
   max-width: 90%;
   box-shadow: -5px -5px 20px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 
@@ -130,7 +131,7 @@ button {
   height: 100%;
   font-size: 100px;
   text-align: center;
-  background-color: transparent
+  background-color: transparent;
 }
 
 #one-1, #two-2, #three-3 {
