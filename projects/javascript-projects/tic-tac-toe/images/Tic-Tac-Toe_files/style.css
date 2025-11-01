@@ -116,8 +116,8 @@ button {
 #restart-msg {
   text-align: center;
   color: white;
-  font-size: large;
-  font-weight: bolder;
+  /* font-size: large; */
+  /* font-weight: bolder; */
   padding: 5px 0;
 }
 
