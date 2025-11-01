@@ -9,10 +9,39 @@ const start = document.querySelector('#start');
 const restart = document.querySelector('#restart');
 const restartMsg = document.querySelector('#restart-msg')
 const boxes = document.querySelectorAll('.boxes');
-
-
+let finalWinner;
 
 playerAssignmentMessage.innerHTML = 'Enter Player names & click Start to begin!';
+
+const winningCombo = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+];
+
+function winner(){
+  const values = Array.from(boxes).map(a => a.value);
+  for(const [a, b, c] of winningCombo){
+    if(values[a] && values[a] === values[b] && values[a] === values[c]){
+      
+      playerAssignmentOne.innerHTML = 'Congratulations!!!';
+      playerAssignmentTwo.innerHTML = '';
+      playerAssignmentMessage.innerHTML = '';
+      finalWinner = values[a] === 'X' ? playerOne.value.toUpperCase() : playerTwo.value.toUpperCase();
+      playerAssignmentMessage.innerHTML = values[a] === 'X' ? `${playerOne.value.toUpperCase()} is winner`: `${playerOne.value.toUpperCase()} is winner`;
+      restartMsg.innerHTML = 'You must Restart the game to play again.';
+      playerOne.value = '';
+      playerTwo.value = '';
+      return;
+    }
+  }
+  return null;
+}
 
 start.addEventListener('click', () => {
   if(playerOne.value && playerTwo.value){
@@ -31,6 +60,14 @@ start.addEventListener('click', () => {
       
         clickCount++;
         e.target.value = clickCount % 2 === 0 ? 'O' : 'X';
+
+        if(clickCount >= 5) winner();
+        if(playerAssignmentMessage.innerHTML === `${finalWinner} is winner`){
+            boxes.forEach(box => {
+            box.disabled = true;
+          });
+        }
+        
         
         if(clickCount === 9) {
           restartMsg.style.backgroundColor= 'white';
