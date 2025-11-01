@@ -11,6 +11,7 @@ const restartMsg = document.querySelector('#restart-msg')
 const boxes = document.querySelectorAll('.boxes');
 let finalWinner;
 
+boxes.forEach(box => box.disabled = true);
 playerAssignmentMessage.innerHTML = 'Enter Player names & click Start to begin!';
 
 const winningCombo = [
@@ -44,11 +45,13 @@ function winner(){
 }
 
 start.addEventListener('click', () => {
+  
   if(playerOne.value && playerTwo.value){
     playerAssignmentOne.innerHTML = `${playerOne.value} is assigned: X`;
     playerAssignmentTwo.innerHTML = `${playerTwo.value} is assigned: O`;
     playerAssignmentMessage.innerHTML = 'Game started!';
     gameActive = true;
+    boxes.forEach(box => box.disabled = false);
 
     document.querySelector('.grid-three-col').addEventListener('click', (e) => {
       if(!gameActive) return;
