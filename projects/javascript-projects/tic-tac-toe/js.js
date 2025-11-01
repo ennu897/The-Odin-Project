@@ -13,9 +13,15 @@ const boxes = document.querySelectorAll('.boxes');
 const congratulations = document.querySelector('#congrats');
 
 let finalWinner;
-
+start.disabled = true;
 
 playerAssignmentMessage.innerHTML = 'Enter Player names & click Start to begin!';
+
+playerInputs.forEach(input => {
+  input.addEventListener('input', () => {
+    start.disabled = !((playerOne.value.trim() && playerTwo.value.trim()));
+  });
+});
 
 const winningCombo = [
   [0, 1, 2],
@@ -79,7 +85,7 @@ document.querySelector('.grid-three-col').addEventListener('click', () => {
 
   
 start.addEventListener('click', () => {
-playerAssignmentMessage.innerHTML = 'Game started!';
+  playerAssignmentMessage.innerHTML = 'Game started!';
   if(playerOne.value && playerTwo.value){
 
     playerAssignmentOne.innerHTML = `${playerOne.value} is assigned: X`;
