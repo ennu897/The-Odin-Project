@@ -15,12 +15,7 @@ const congratulations = document.querySelector('#congrats');
 let finalWinner;
 
 
-
-boxes.forEach(box => box.disabled = true);
 playerAssignmentMessage.innerHTML = 'Enter Player names & click Start to begin!';
-
-
-
 
 const winningCombo = [
   [0, 1, 2],
@@ -60,7 +55,7 @@ function winner(){
       
       playerInputs.forEach(input => input.disabled = true);
       restartMsg.style.backgroundColor= 'red';
-      restartMsg.innerHTML = 'You must Restart the game to play again.';
+      restartMsg.innerHTML = "You must Restart the game to play again.";
       playerOne.value = '';
       playerTwo.value = '';
       return;
@@ -69,17 +64,35 @@ function winner(){
   return null;
 }
 
-start.addEventListener('click', () => {
-  // start.disabled = 'true';
-  
+document.querySelector('.grid-three-col').addEventListener('click', () => {
   if(playerOne.value && playerTwo.value){
+    playerAssignmentMessage.innerHTML = 'Please click Start to Begin!!';
+  }
+});
+
+
+document.querySelector('.grid-three-col').addEventListener('click', () => {
+  if((!playerOne.value || !playerTwo.value)){
+    playerAssignmentMessage.innerHTML = 'Please enter both player names and click Start!!';
+  }
+});
+
+  
+start.addEventListener('click', () => {
+playerAssignmentMessage.innerHTML = 'Game started!';
+  if(playerOne.value && playerTwo.value){
+
     playerAssignmentOne.innerHTML = `${playerOne.value} is assigned: X`;
     playerAssignmentTwo.innerHTML = `${playerTwo.value} is assigned: O`;
-    playerAssignmentMessage.innerHTML = 'Game started!';
+    playerInputs.forEach(input => input.disabled = true);
+    
     gameActive = true;
     boxes.forEach(box => box.disabled = false);
+    
 
     document.querySelector('.grid-three-col').addEventListener('click', (e) => {
+      playerAssignmentMessage.innerHTML = 'Game started!';
+      
       if(!gameActive) return;
     
       if(e.target.classList.contains('boxes')){  
@@ -88,6 +101,7 @@ start.addEventListener('click', () => {
         if(clickCount >= 9) return;
       
         clickCount++;
+        
         e.target.value = clickCount % 2 === 0 ? 'O' : 'X';
 
         if(clickCount >= 5) winner();
@@ -104,12 +118,13 @@ start.addEventListener('click', () => {
         }
       }
     });
-  }else if(playerOne.value || playerTwo.value){
-    // playerAssignmentMessage.style.color = "red";
-    playerAssignmentMessage.innerHTML = 'Please enter both player names to Begin!';
-    // playerAssignmentMessage.style.color = "red";
+  }else if((playerOne.value || playerTwo.value)){
+    playerAssignmentMessage.innerHTML = 'Please enter both player names and click Start!!';
+    playerInputs.forEach(input => input.disabled = false);
   }
 });
+
+
 
 
 restart.addEventListener('click', () => {
