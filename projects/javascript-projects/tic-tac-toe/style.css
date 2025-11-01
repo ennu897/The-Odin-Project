@@ -16,7 +16,7 @@ body {
 .flex {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   width: 500px;
   height: 100%;
   margin: 100px auto;
@@ -90,17 +90,15 @@ button {
 }
 
 
-#player-assignment {
+#player-assignment-one, #player-assignment-two, #player-assignment-message {
   text-align: center;
-  color: red;
-  font-size: large;
+  color: green;
+  font-size: larger;
   font-weight: bolder;
-  /* padding: 10px 0; */
-  justify-content: space-evenly;
 }
 
 #restart-msg {
-  text-align: center;
+  /* text-align: center; */
   color: red;
   font-size: large;
   font-weight: bolder;
@@ -130,4 +128,12 @@ button {
 }
 #three-3, #six-6, #nine-9 {
   border-right: none;
+}
+
+.display-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  gap: 2px;
 }
