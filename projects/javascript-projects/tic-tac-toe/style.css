@@ -159,7 +159,8 @@ button {
 #congrats {
   display: none;
   position: absolute;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
   z-index: 5;
   opacity: 0; 
   transition: opacity 0.5s ease-in-out;
@@ -167,7 +168,8 @@ button {
 
 #congrats img {
   opacity: 0.9;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 
 /* this is the updted one */
