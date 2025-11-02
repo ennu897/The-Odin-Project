@@ -107,8 +107,9 @@ button {
 }
 
 
-#player-assignment-one, #player-assignment-two, #player-assignment-message {
+#player-assignment-one, #player-assignment-two, #player-assignment-message-one, #player-assignment-message-two{
   text-align: center;
+  justify-content: center;
   color: green;
   font-size: larger;
   font-weight: bolder;
@@ -152,7 +153,7 @@ button {
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  gap: 5px;
+  gap: 10px;
   /* padding: 10px; */
 }
 
@@ -170,6 +171,15 @@ button {
   opacity: 0.9;
   width: 100vw;
   height: 100vh;
+}
+
+.display-flex-inner {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.display-flex-inner, #player-assignment-message-two {
+  display: none;
 }
 
 /* this is the updted one */

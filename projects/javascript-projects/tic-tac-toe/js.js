@@ -5,7 +5,9 @@ const playerTwo = document.querySelector("#player-two");
 const playerInputs = [playerOne, playerTwo];
 const playerAssignmentOne = document.querySelector("#player-assignment-one");
 const playerAssignmentTwo = document.querySelector("#player-assignment-two");
-const playerAssignmentMessage = document.querySelector('#player-assignment-message');
+const playerAssignmentMessageOne = document.querySelector('#player-assignment-message-one');
+const playerAssignmentMessageTwo = document.querySelector('#player-assignment-message-two');
+const displayFlexInner = document.querySelector('.display-flex-inner');
 const start = document.querySelector('#start');
 const restart = document.querySelector('#restart');
 const restartMsg = document.querySelector('#restart-msg')
@@ -15,7 +17,7 @@ const congratulations = document.querySelector('#congrats');
 let finalWinner;
 start.disabled = true;
 
-playerAssignmentMessage.innerHTML = 'Enter Player names & click Start to begin!';
+playerAssignmentMessageOne.innerHTML = 'Enter Player names & click Start to begin!';
 
 playerInputs.forEach(input => {
   input.addEventListener('input', () => {
@@ -38,14 +40,15 @@ function winner(){
   const values = Array.from(boxes).map(a => a.value);
   for(const [a, b, c] of winningCombo){
     if(values[a] && values[a] === values[b] && values[a] === values[c]){
-      
-      playerAssignmentOne.innerHTML = 'Congratulations!!!';
+      playerAssignmentOne.innerHTML = '';
       playerAssignmentTwo.innerHTML = '';
-      playerAssignmentMessage.innerHTML = '';
-      finalWinner = values[a] === 'X' ? playerOne.value.toUpperCase() : playerTwo.value.toUpperCase();
-      playerAssignmentMessage.innerHTML = values[a] === 'X' 
-        ? `${playerOne.value.toUpperCase()} is winner` 
-        : `${playerTwo.value.toUpperCase()} is winner`;
+      playerAssignmentMessageOne.innerHTML = '';
+      finalWinner = values[a] === 'X' ? playerOne.value.trim().toUpperCase() : playerOne.value.trim().toUpperCase();
+      playerAssignmentMessageOne.innerHTML = values[a] === 'X' 
+        ? `${playerOne.value.trim().toUpperCase()} is winner` 
+        : `${playerOne.value.trim().toUpperCase()} is winner`;
+      playerAssignmentMessageTwo.style.display = "flex";
+      playerAssignmentMessageTwo.innerHTML = "Congratulations!!!"
 
       start.disabled = true;
       congratulations.style.display = 'block';
@@ -86,11 +89,12 @@ document.querySelector('.grid-three-col').addEventListener('click', () => {
 
   
 start.addEventListener('click', () => {
-  playerAssignmentMessage.innerHTML = 'Game started!';
+  displayFlexInner.style.display = "flex";
+  playerAssignmentMessageOne.innerHTML = 'Game started!';
   if(playerOne.value && playerTwo.value){
 
-    playerAssignmentOne.innerHTML = `${playerOne.value} is assigned: X`;
-    playerAssignmentTwo.innerHTML = `${playerTwo.value} is assigned: O`;
+    playerAssignmentOne.innerHTML = `${playerOne.value.trim().toUpperCase()} is assigned: X`;
+    playerAssignmentTwo.innerHTML = `${playerOne.value.trim().toUpperCase()} is assigned: O`;
     playerInputs.forEach(input => input.disabled = true);
     
     gameActive = true;
@@ -98,7 +102,7 @@ start.addEventListener('click', () => {
     
 
     document.querySelector('.grid-three-col').addEventListener('click', (e) => {
-      playerAssignmentMessage.innerHTML = 'Game started!';
+      playerAssignmentMessageOne.innerHTML = 'Game started!';
       
       if(!gameActive) return;
     
@@ -112,7 +116,7 @@ start.addEventListener('click', () => {
         e.target.value = clickCount % 2 === 0 ? 'O' : 'X';
 
         if(clickCount >= 5) winner();
-        if(playerAssignmentMessage.innerHTML === `${finalWinner} is winner`){
+        if(playerAssignmentMessageOne.innerHTML === `${finalWinner} is winner`){
             boxes.forEach(box => {
             box.disabled = true;
           });
@@ -127,7 +131,7 @@ start.addEventListener('click', () => {
       }
     });
   }else if((playerOne.value || playerTwo.value)){
-    playerAssignmentMessage.innerHTML = 'Please enter both player names and click Start!!';
+    playerAssignmentMessageOne.innerHTML = 'Please enter both player names and click Start!!';
     playerInputs.forEach(input => input.disabled = false);
   }
 });
@@ -147,7 +151,8 @@ restart.addEventListener('click', () => {
   playerTwo.value = '';
   playerAssignmentOne.innerHTML = '';
   playerAssignmentTwo.innerHTML = '';
-  playerAssignmentMessage.innerHTML = 'Enter Player names & click Start to begin!';
+  playerAssignmentMessageOne.innerHTML = 'Enter Player names & click Start to begin!';
+  playerAssignmentMessageTwo.innerHTML = ""
   restartMsg.style.backgroundColor= 'transparent';
   gameActive = false;
   start.disabled = true;
